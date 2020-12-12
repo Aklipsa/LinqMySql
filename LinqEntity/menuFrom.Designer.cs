@@ -53,6 +53,11 @@
             this.tbReport = new System.Windows.Forms.ToolStripButton();
             this.tabWorks = new System.Windows.Forms.TabControl();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idprogramDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pageProcedure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -64,6 +69,7 @@
             this.toolStrip1.SuspendLayout();
             this.tabWorks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_program
@@ -169,8 +175,15 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idprogramDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1,
+            this.discountDataGridViewTextBoxColumn1,
+            this.contractDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.programBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(0, 5);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView2.Name = "dataGridView2";
@@ -210,6 +223,7 @@
             this.tbRefresh.Name = "tbRefresh";
             this.tbRefresh.Size = new System.Drawing.Size(34, 34);
             this.tbRefresh.Text = "Linq";
+            this.tbRefresh.Click += new System.EventHandler(this.tbRefresh_Click);
             // 
             // tbPrint
             // 
@@ -220,6 +234,7 @@
             this.tbPrint.Name = "tbPrint";
             this.tbPrint.Size = new System.Drawing.Size(34, 34);
             this.tbPrint.Text = "GetPrograms";
+            this.tbPrint.Click += new System.EventHandler(this.tbPrint_Click);
             // 
             // tbDel
             // 
@@ -230,6 +245,7 @@
             this.tbDel.Name = "tbDel";
             this.tbDel.Size = new System.Drawing.Size(34, 34);
             this.tbDel.Text = "Delete";
+            this.tbDel.Click += new System.EventHandler(this.tbDel_Click);
             // 
             // tbEdit
             // 
@@ -240,6 +256,7 @@
             this.tbEdit.Name = "tbEdit";
             this.tbEdit.Size = new System.Drawing.Size(34, 34);
             this.tbEdit.Text = "Edit";
+            this.tbEdit.Click += new System.EventHandler(this.tbEdit_Click);
             // 
             // tbAdd
             // 
@@ -284,11 +301,13 @@
             // tbReport
             // 
             this.tbReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbReport.Image = global::LinqEntity.Properties.Resources.rules;
             this.tbReport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbReport.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.tbReport.Name = "tbReport";
-            this.tbReport.Size = new System.Drawing.Size(23, 34);
+            this.tbReport.Size = new System.Drawing.Size(34, 34);
             this.tbReport.Text = "Report";
+            this.tbReport.Click += new System.EventHandler(this.tbReport_Click);
             // 
             // tabWorks
             // 
@@ -304,6 +323,34 @@
             this.tabWorks.SelectedIndex = 0;
             this.tabWorks.Size = new System.Drawing.Size(780, 400);
             this.tabWorks.TabIndex = 8;
+            // 
+            // programBindingSource
+            // 
+            this.programBindingSource.DataSource = typeof(LinqEntity.Entity.program);
+            // 
+            // idprogramDataGridViewTextBoxColumn1
+            // 
+            this.idprogramDataGridViewTextBoxColumn1.DataPropertyName = "idprogram";
+            this.idprogramDataGridViewTextBoxColumn1.HeaderText = "idprogram";
+            this.idprogramDataGridViewTextBoxColumn1.Name = "idprogramDataGridViewTextBoxColumn1";
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // discountDataGridViewTextBoxColumn1
+            // 
+            this.discountDataGridViewTextBoxColumn1.DataPropertyName = "discount";
+            this.discountDataGridViewTextBoxColumn1.HeaderText = "discount";
+            this.discountDataGridViewTextBoxColumn1.Name = "discountDataGridViewTextBoxColumn1";
+            // 
+            // contractDataGridViewTextBoxColumn1
+            // 
+            this.contractDataGridViewTextBoxColumn1.DataPropertyName = "contract";
+            this.contractDataGridViewTextBoxColumn1.HeaderText = "contract";
+            this.contractDataGridViewTextBoxColumn1.Name = "contractDataGridViewTextBoxColumn1";
             // 
             // menuForm
             // 
@@ -329,6 +376,7 @@
             this.toolStrip1.PerformLayout();
             this.tabWorks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,6 +407,11 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tbReport;
         private System.Windows.Forms.TabControl tabWorks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idprogramDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource programBindingSource;
     }
 }
 
