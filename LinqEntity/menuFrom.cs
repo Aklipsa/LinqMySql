@@ -11,11 +11,12 @@ using MySql.Data.MySqlClient;
 
 
 
+
 namespace LinqEntity
 {
     public partial class menuForm : Form
     {
-        agentModel dbcontex = new agentModel();
+        agentModel dbcontex = Globals.getDbContext();
 
         BindingList<client> clients;
         List<program> programs;
@@ -46,7 +47,7 @@ namespace LinqEntity
                 MessageBox.Show(ex.Message);
             }
         }
-                      
+
 
         // Добавление
         private void tbAdd_Click(object sender, EventArgs e)
@@ -142,8 +143,16 @@ namespace LinqEntity
             try
             {
                 var request = dbcontex.contract
-                    .Where(i => i.client.fio == textBox_pass.Text)
-                    .Select(i => new { i.client.fio, i.client.pass, i.client.born, i.program.name, i.price, i.program.discount, })
+                    .Join(dbcontex.ownership,
+                      t => t.idcontract, // свойство-селектор объекта из первого набора
+                        pl => pl.contract_id, // свойство-селектор объекта из второго набора
+                        (t, pl) => new  // результирующий объект
+                        {
+                            fio = t.client.fio,
+                            pass = t.client.pass,
+                            owner = pl.adress,
+                            price = pl.price
+                        })                   
                     .ToList();
                 dataGridView3.DataSource = request;
             }
@@ -153,6 +162,11 @@ namespace LinqEntity
             }
 
         }
+        private void tbRefresh_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
 
         // Выбор 
         private int getSelectedRow(DataGridView dataGridView)
@@ -180,22 +194,33 @@ namespace LinqEntity
 
         private void tbPrint_Click(object sender, EventArgs e)
         {
-            dbcontex.program.Load();
-            programs = dbcontex.program.Local.ToList();
+            try
+            {
+                dbcontex.program.Load();
+                programs = dbcontex.program.Local.ToList();
 
-            // Заполняем 
-            dataGridView2.DataSource = programs;
+                // Заполняем 
+                dataGridView2.DataSource = programs;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private class SPResult
         {
-            public string name { get; set; }
+            public string Idcontract { get; set; }
 
-            public string price { get; set; }
-
-            public int? discount { get; set; }
+            public int Program_id { get; set; }
 
             public int? client_id { get; set; }
+
+            public int? Price { get; set; }
+
+            public string Name { get; set; }
+
+            public int? Discount { get; set; }
 
         }
 
@@ -204,21 +229,25 @@ namespace LinqEntity
         {
             try
             {
-                var parameter = new MySqlParameter("@str", textBox_program.Text);
-                var result = dbcontex.Database.SqlQuery<SPResult>("mydb.getPrograms(@str)", parameter); // mydb.getPrograms
-                var data = result.Join(dbcontex.client, // второй набор
+                var result = dbcontex.Database.SqlQuery<SPResult>("mydb.new_procedure()", new MySqlParameter("", textBox_program.Text)); // mydb.getPrograms
+                var data = result
 
+                        .Join(dbcontex.client, // второй набо
                         t => t.client_id, // свойство-селектор объекта из первого набора
                         pl => pl.idclient, // свойство-селектор объекта из второго набора
                         (t, pl) => new  // результирующий объект
                         {
                             client_id = t.client_id,
-                            name = t.name,
+                            fio = pl.fio,
                             pass = pl.pass,
-                            born = pl.born,                                                
-                            price = t.price,
-                            discount = t.discount
-                        }).ToList();
+                            born = pl.born,
+                            idcontract = t.Idcontract,
+                            name = t.Name,
+                            price = t.Price,
+                            discount = t.Discount
+                        })
+                        .ToList();
+
 
                 dataGridView4.DataSource = data;
             }
@@ -234,5 +263,7 @@ namespace LinqEntity
             MessageBox.Show("Exit?");
             Application.Exit();
         }
+
+        
     }
 }

@@ -42,22 +42,17 @@
             this.pagePrograms = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.pageView = new System.Windows.Forms.TabPage();
-            this.tbExit = new System.Windows.Forms.ToolStripButton();
-            this.tbRefresh = new System.Windows.Forms.ToolStripButton();
-            this.tbPrint = new System.Windows.Forms.ToolStripButton();
-            this.tbDel = new System.Windows.Forms.ToolStripButton();
-            this.tbEdit = new System.Windows.Forms.ToolStripButton();
-            this.tbAdd = new System.Windows.Forms.ToolStripButton();
-            this.tbSave = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tbSave = new System.Windows.Forms.ToolStripButton();
+            this.tbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tbEdit = new System.Windows.Forms.ToolStripButton();
+            this.tbDel = new System.Windows.Forms.ToolStripButton();
+            this.tbPrint = new System.Windows.Forms.ToolStripButton();
+            this.tbRefresh = new System.Windows.Forms.ToolStripButton();
             this.tbReport = new System.Windows.Forms.ToolStripButton();
+            this.tbExit = new System.Windows.Forms.ToolStripButton();
             this.tabWorks = new System.Windows.Forms.TabControl();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idprogramDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pageProcedure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -69,12 +64,12 @@
             this.toolStrip1.SuspendLayout();
             this.tabWorks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_program
             // 
             this.textBox_program.Location = new System.Drawing.Point(103, 22);
+            this.textBox_program.Multiline = true;
             this.textBox_program.Name = "textBox_program";
             this.textBox_program.Size = new System.Drawing.Size(124, 23);
             this.textBox_program.TabIndex = 6;
@@ -103,18 +98,20 @@
             // 
             // dataGridView4
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
             this.dataGridView4.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(0, 67);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
             this.dataGridView4.Size = new System.Drawing.Size(772, 300);
             this.dataGridView4.TabIndex = 2;
             // 
             // textBox_pass
             // 
             this.textBox_pass.Location = new System.Drawing.Point(103, 22);
+            this.textBox_pass.Multiline = true;
             this.textBox_pass.Name = "textBox_pass";
             this.textBox_pass.Size = new System.Drawing.Size(124, 23);
             this.textBox_pass.TabIndex = 5;
@@ -131,11 +128,13 @@
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(0, 67);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(768, 300);
             this.dataGridView3.TabIndex = 1;
             // 
@@ -175,15 +174,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idprogramDataGridViewTextBoxColumn1,
-            this.nameDataGridViewTextBoxColumn1,
-            this.discountDataGridViewTextBoxColumn1,
-            this.contractDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.programBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(0, 5);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView2.Name = "dataGridView2";
@@ -202,82 +194,6 @@
             this.pageView.TabIndex = 2;
             this.pageView.Text = "Linq";
             this.pageView.UseVisualStyleBackColor = true;
-            // 
-            // tbExit
-            // 
-            this.tbExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbExit.Image = ((System.Drawing.Image)(resources.GetObject("tbExit.Image")));
-            this.tbExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbExit.Margin = new System.Windows.Forms.Padding(355, 1, 0, 2);
-            this.tbExit.Name = "tbExit";
-            this.tbExit.Size = new System.Drawing.Size(34, 34);
-            this.tbExit.Text = "Exit";
-            this.tbExit.Click += new System.EventHandler(this.tbExit_Click);
-            // 
-            // tbRefresh
-            // 
-            this.tbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tbRefresh.Image")));
-            this.tbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbRefresh.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
-            this.tbRefresh.Name = "tbRefresh";
-            this.tbRefresh.Size = new System.Drawing.Size(34, 34);
-            this.tbRefresh.Text = "Linq";
-            this.tbRefresh.Click += new System.EventHandler(this.tbRefresh_Click);
-            // 
-            // tbPrint
-            // 
-            this.tbPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbPrint.Image = ((System.Drawing.Image)(resources.GetObject("tbPrint.Image")));
-            this.tbPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbPrint.Margin = new System.Windows.Forms.Padding(45, 1, 0, 2);
-            this.tbPrint.Name = "tbPrint";
-            this.tbPrint.Size = new System.Drawing.Size(34, 34);
-            this.tbPrint.Text = "GetPrograms";
-            this.tbPrint.Click += new System.EventHandler(this.tbPrint_Click);
-            // 
-            // tbDel
-            // 
-            this.tbDel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbDel.Image = ((System.Drawing.Image)(resources.GetObject("tbDel.Image")));
-            this.tbDel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbDel.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
-            this.tbDel.Name = "tbDel";
-            this.tbDel.Size = new System.Drawing.Size(34, 34);
-            this.tbDel.Text = "Delete";
-            this.tbDel.Click += new System.EventHandler(this.tbDel_Click);
-            // 
-            // tbEdit
-            // 
-            this.tbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbEdit.Image = ((System.Drawing.Image)(resources.GetObject("tbEdit.Image")));
-            this.tbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbEdit.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
-            this.tbEdit.Name = "tbEdit";
-            this.tbEdit.Size = new System.Drawing.Size(34, 34);
-            this.tbEdit.Text = "Edit";
-            this.tbEdit.Click += new System.EventHandler(this.tbEdit_Click);
-            // 
-            // tbAdd
-            // 
-            this.tbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbAdd.Image = ((System.Drawing.Image)(resources.GetObject("tbAdd.Image")));
-            this.tbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbAdd.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
-            this.tbAdd.Name = "tbAdd";
-            this.tbAdd.Size = new System.Drawing.Size(34, 34);
-            this.tbAdd.Text = "Add";
-            this.tbAdd.Click += new System.EventHandler(this.tbAdd_Click);
-            // 
-            // tbSave
-            // 
-            this.tbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbSave.Image = ((System.Drawing.Image)(resources.GetObject("tbSave.Image")));
-            this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbSave.Name = "tbSave";
-            this.tbSave.Size = new System.Drawing.Size(34, 34);
-            this.tbSave.Text = "Save";
-            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
             // toolStrip1
             // 
@@ -298,16 +214,92 @@
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tbSave
+            // 
+            this.tbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbSave.Image = ((System.Drawing.Image)(resources.GetObject("tbSave.Image")));
+            this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbSave.Name = "tbSave";
+            this.tbSave.Size = new System.Drawing.Size(34, 34);
+            this.tbSave.Text = "Save";
+            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
+            // 
+            // tbAdd
+            // 
+            this.tbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbAdd.Image = ((System.Drawing.Image)(resources.GetObject("tbAdd.Image")));
+            this.tbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbAdd.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
+            this.tbAdd.Name = "tbAdd";
+            this.tbAdd.Size = new System.Drawing.Size(34, 34);
+            this.tbAdd.Text = "Add";
+            this.tbAdd.Click += new System.EventHandler(this.tbAdd_Click);
+            // 
+            // tbEdit
+            // 
+            this.tbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbEdit.Image = ((System.Drawing.Image)(resources.GetObject("tbEdit.Image")));
+            this.tbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbEdit.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
+            this.tbEdit.Name = "tbEdit";
+            this.tbEdit.Size = new System.Drawing.Size(34, 34);
+            this.tbEdit.Text = "Edit";
+            this.tbEdit.Click += new System.EventHandler(this.tbEdit_Click);
+            // 
+            // tbDel
+            // 
+            this.tbDel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbDel.Image = ((System.Drawing.Image)(resources.GetObject("tbDel.Image")));
+            this.tbDel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbDel.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
+            this.tbDel.Name = "tbDel";
+            this.tbDel.Size = new System.Drawing.Size(34, 34);
+            this.tbDel.Text = "Delete";
+            this.tbDel.Click += new System.EventHandler(this.tbDel_Click);
+            // 
+            // tbPrint
+            // 
+            this.tbPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbPrint.Image = ((System.Drawing.Image)(resources.GetObject("tbPrint.Image")));
+            this.tbPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbPrint.Margin = new System.Windows.Forms.Padding(45, 1, 0, 2);
+            this.tbPrint.Name = "tbPrint";
+            this.tbPrint.Size = new System.Drawing.Size(34, 34);
+            this.tbPrint.Text = "GetPrograms";
+            this.tbPrint.Click += new System.EventHandler(this.tbPrint_Click);
+            // 
+            // tbRefresh
+            // 
+            this.tbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tbRefresh.Image")));
+            this.tbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbRefresh.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
+            this.tbRefresh.Name = "tbRefresh";
+            this.tbRefresh.Size = new System.Drawing.Size(34, 34);
+            this.tbRefresh.Text = "Linq";
+            this.tbRefresh.Click += new System.EventHandler(this.tbRefresh_Click);
+            // 
             // tbReport
             // 
             this.tbReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbReport.Image = global::LinqEntity.Properties.Resources.rules;
+            this.tbReport.Image = global::LinqPro.Properties.Resources.rules;
             this.tbReport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbReport.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.tbReport.Name = "tbReport";
             this.tbReport.Size = new System.Drawing.Size(34, 34);
             this.tbReport.Text = "Report";
             this.tbReport.Click += new System.EventHandler(this.tbReport_Click);
+            // 
+            // tbExit
+            // 
+            this.tbExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbExit.Image = ((System.Drawing.Image)(resources.GetObject("tbExit.Image")));
+            this.tbExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbExit.Margin = new System.Windows.Forms.Padding(355, 1, 0, 2);
+            this.tbExit.Name = "tbExit";
+            this.tbExit.Size = new System.Drawing.Size(34, 34);
+            this.tbExit.Text = "Exit";
+            this.tbExit.Click += new System.EventHandler(this.tbExit_Click);
             // 
             // tabWorks
             // 
@@ -323,34 +315,6 @@
             this.tabWorks.SelectedIndex = 0;
             this.tabWorks.Size = new System.Drawing.Size(780, 400);
             this.tabWorks.TabIndex = 8;
-            // 
-            // programBindingSource
-            // 
-            this.programBindingSource.DataSource = typeof(LinqEntity.Entity.program);
-            // 
-            // idprogramDataGridViewTextBoxColumn1
-            // 
-            this.idprogramDataGridViewTextBoxColumn1.DataPropertyName = "idprogram";
-            this.idprogramDataGridViewTextBoxColumn1.HeaderText = "idprogram";
-            this.idprogramDataGridViewTextBoxColumn1.Name = "idprogramDataGridViewTextBoxColumn1";
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            // 
-            // discountDataGridViewTextBoxColumn1
-            // 
-            this.discountDataGridViewTextBoxColumn1.DataPropertyName = "discount";
-            this.discountDataGridViewTextBoxColumn1.HeaderText = "discount";
-            this.discountDataGridViewTextBoxColumn1.Name = "discountDataGridViewTextBoxColumn1";
-            // 
-            // contractDataGridViewTextBoxColumn1
-            // 
-            this.contractDataGridViewTextBoxColumn1.DataPropertyName = "contract";
-            this.contractDataGridViewTextBoxColumn1.HeaderText = "contract";
-            this.contractDataGridViewTextBoxColumn1.Name = "contractDataGridViewTextBoxColumn1";
             // 
             // menuForm
             // 
@@ -376,7 +340,6 @@
             this.toolStrip1.PerformLayout();
             this.tabWorks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,11 +348,9 @@
         #endregion
 
         private System.Windows.Forms.BindingSource clientBindingSource;
-        private System.Windows.Forms.TextBox textBox_program;
         private System.Windows.Forms.Label label_procedure;
         private System.Windows.Forms.TabPage pageProcedure;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.TextBox textBox_pass;
         private System.Windows.Forms.Label label_pass;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TabPage pageClients;
@@ -406,12 +367,13 @@
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tbReport;
-        private System.Windows.Forms.TabControl tabWorks;
         private System.Windows.Forms.DataGridViewTextBoxColumn idprogramDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contractDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource programBindingSource;
+        public System.Windows.Forms.TextBox textBox_program;
+        public System.Windows.Forms.TabControl tabWorks;
+        public System.Windows.Forms.TextBox textBox_pass;
     }
 }
 
